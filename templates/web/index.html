@@ -1,0 +1,59 @@
+﻿
+{% extends '/web/base_main.html' %}
+{% block title %}
+    主页
+{% endblock %}
+{% block body %}
+{{ super }}
+<section class="row featured-post-carousel">
+    <div class="item post">
+        <img src="/static/web/images/featured-posts/1.jpg" alt="" class="img-responsive main-bg">
+        <div class="post-content">
+            <div class="container">
+                <h5 class="post-meta"> <a href="#">博主简介</a> | <a href="#">2016.3.3</a></h5>
+                <h2 class="post-title"><a href="#">哈哈哈</a></h2>
+                <a href="/about/" class="btn btn-primary"><span>更多关于我</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="item post">
+        <img src="/static/web/images/featured-posts/1-1.jpg" alt="" class="img-responsive main-bg">
+        <div class="post-content">
+            <div class="container">
+                <h5 class="post-meta"><i>in</i> <a href="#">Author Profile</a> | <a href="#">feb 17, 2016</a></h5>
+                <h2 class="post-title"><a href="/about/">我的个人博客</a></h2>
+                <a href="/about/" class="btn btn-primary"><span>read more</span></a>
+            </div>
+        </div>
+    </div>
+
+</section>
+<div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
+<section class="row content-wrap">
+    <div class="container">
+        <div class="row" id="post-masonry">
+            {% for art in art %}
+            <article class="col-sm-4 post post-masonry post-format-image">
+                <div class="post-wrapper row">
+                    <div class="featured-content row">
+                        <img src="/static/web/images/posts/masonry/{{ loop.index }}.jpg" alt="" class="img-responsive">
+                    </div>
+                    <div class="post-excerpt row">
+                        <h4 class="post-meta">
+                            <span class="post-author"><i>作者：</i><a href="#">哈哈</a></span>
+                        </h4>
+                        <h5 class="post-title"><a href="/single/?{{ art.title }}">{{ art.title}}</a></h5>
+                        <p>{{ art.desc }}</p>
+                        <footer class="row">
+                            <div class="response-count"><img src="/static/web/images/comment-icon-gray.png" alt="">5</div>
+                        </footer>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+{% endblock %}
+

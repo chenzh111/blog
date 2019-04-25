@@ -1,0 +1,173 @@
+﻿{% extends '/web/base_main.html' %}
+{% block title %}
+    博客
+{% endblock %}
+{% block body %}
+{{ super }}
+<section class="row content-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 single-post-contents">
+                <article class="single-post-content row m0 post">
+                    <header class="row">                        
+                        <h5 class="post-meta">
+                            <a href="#" class="date">{{ article.create_time }}</a>
+                            <span class="post-author"><i>作者：</i><a href="#">哈哈</a></span>
+                        </h5>
+                        <h2 class="post-title">{{ article.title }}</h2>
+                        <div class="row">
+                            <div class="response-count pull-right"><img src="/static/web/images/comment-icon-gray.png" alt="">5</div>
+                        </div>
+                    </header>
+                    <div class="featured-content row m0">
+                        <a href="#"><img src="/static/web/images/posts/6.jpg" alt=""></a>
+                    </div>
+                    <div class="post-content row">
+                        <p>{{ content | safe }}</p>
+
+                        </div>
+                        <br>
+
+                        <!-- Place somewhere in the <body> of your page -->
+{#                        <div class="thumbCarousel row m0">#}
+{#                            <div id="slider" class="flexslider">#}
+{#                                <ul class="slides">#}
+{#                                    <li><img src="/static/web/images/posts/gallery/1.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/2.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/3.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/4.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/1.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/2.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/3.jpg" alt=""></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                            <div id="carousel" class="flexslider">#}
+{#                                <ul class="slides">#}
+{#                                    <li><img src="/static/web/images/posts/gallery/s1.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/s2.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/s3.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/s4.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/s1.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/s2.jpg" alt=""></li>#}
+{#                                    <li><img src="/static/web/images/posts/gallery/s3.jpg" alt=""></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <br>#}
+{#                    <div class="row m0 tags">#}
+{#                        <a href="#" class="tag">music</a>#}
+{#                        <a href="#" class="tag">tegs</a>#}
+{#                        <a href="#" class="tag">tegs hover</a>#}
+{#                    </div>#}
+{##}
+{#                    <div class="row m0 comments">#}
+{#                        <h5 class="response-count">5 comments<a href="#comment-form" class="btn btn-primary pull-right"><span>add comment</span></a></h5>#}
+                        <!--Comments-->
+{#                        <div class="media comment">#}
+{#                            <div class="media-left">#}
+{#                                <a href="#"><img src="/static/web/images/posts/c1.jpg" alt="" class="img-circle"></a>#}
+{#                            </div>#}
+{#                            <div class="media-body">#}
+{#                                <h4><a href="#">Mark Sanders</a></h4>#}
+{#                                <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>#}
+{#                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>                                #}
+{#                                <!--Comments-->#}
+{#                                <div class="media comment reply">#}
+{#                                    <div class="media-left">#}
+{#                                        <a href="#"><img src="/static/web/images/posts/c2.jpg" alt="" class="img-circle"></a>#}
+{#                                    </div>#}
+{#                                    <div class="media-body">#}
+{#                                        <h4><a href="#">Mark Sanders</a></h4>#}
+{#                                        <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>#}
+{#                                        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>#}
+{#                                        <!--Comments-->#}
+{#                                        <div class="media comment reply">#}
+{#                                            <div class="media-left">#}
+{#                                                <a href="#"><img src="/static/web/images/posts/c1.jpg" alt="" class="img-circle"></a>#}
+{#                                            </div>#}
+{#                                            <div class="media-body">#}
+{#                                                <h4><a href="#">Mark Sanders</a></h4>#}
+{#                                                <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>#}
+{#                                                <p>Remaining essentially unchanged.</p>#}
+{#                                                <!--Comments-->#}
+{#                                                <div class="media comment reply">#}
+{#                                                    <div class="media-left">#}
+{#                                                        <a href="#"><img src="/static/web/images/posts/c2.jpg" alt="" class="img-circle"></a>#}
+{#                                                    </div>#}
+{#                                                    <div class="media-body">#}
+{#                                                        <h4><a href="#">Mark Sanders</a></h4>#}
+{#                                                        <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>#}
+{#                                                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+
+{#                        <!--Comments-->#}
+{#                        <div class="media comment">#}
+{#                            <div class="media-left">#}
+{#                                <a href="#"><img src="/static/web/images/posts/c1.jpg" alt="" class="img-circle"></a>#}
+{#                            </div>#}
+{#                            <div class="media-body">#}
+{#                                <h4><a href="#">Mark Sanders</a></h4>#}
+{#                                <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>#}
+{#                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    </div>#}
+{#                    <form action="#" method="post" class="comment-form row" id="comment-form">#}
+{#                        <h5 class="form-title">leave a reply</h5>#}
+{#                        <div class="form-group col-sm-6">#}
+{#                            <label for="name">full name*</label>#}
+{#                            <input type="text" id="name" class="form-control" placeholder="Your name" required>#}
+{#                        </div>#}
+{#                        <div class="form-group col-sm-6">#}
+{#                            <label for="email">full name*</label>#}
+{#                            <input type="email" id="email" class="form-control" placeholder="Your email address here" required>#}
+{#                        </div>#}
+{#                        <div class="form-group col-sm-6">#}
+{#                            <label for="website">website</label>#}
+{#                            <input type="url" id="website" class="form-control" placeholder="Your website url" >#}
+{#                        </div>#}
+{#                        <div class="form-group col-sm-6">#}
+{#                            <label for="subject">subject</label>#}
+{#                            <input type="text" id="subject" class="form-control" placeholder="Write subject here" required>#}
+{#                        </div>#}
+{#                        <div class="form-group col-sm-12">#}
+{#                            <label for="message">message</label>#}
+{#                            <textarea name="message" id="message" class="form-control" placeholder="Write message here"></textarea>#}
+{#                        </div>#}
+{#                        <div class="col-sm-12">#}
+{#                            <button type="submit" class="btn-primary"><span>send</span></button>#}
+{#                            <h5 class="pull-right">*required fields</h5>#}
+{#                        </div>#}
+{#                    </form>#}
+                </article>
+            </div>
+            <div class="col-md-4 sidebar">
+                <!--Author Widget-->
+                <aside class="row m0 widget-author widget">
+                    <div class="widget-author-inner row">
+                        <div class="author-avatar row"><a href="#"><img src="/static/web/images/author.png" alt="" class="img-circle"></a></div>
+                        <a href="#"><h2 class="author-name">哈哈</h2></a>
+                        <h5 class="author-title">你好！</h5>
+                        <p>菜鸟程序员</p>
+                        <a href="/about/" class="know-more">更多</a>
+                    </div>
+                    <ul class="nav social-nav">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook-official"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
