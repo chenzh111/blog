@@ -8,10 +8,10 @@
 {% block body %}
     {{ super() }}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
-      <form action="/article/checkall/" method="post" >
+      <form action="/back/article/checkall/" method="post" >
         <h1 class="page-header">文章操作</h1>
         <ol class="breadcrumb">
-          <li><a href="/add-article/">增加文章</a></li>
+          <li><a href="/back/add-article/">增加文章</a></li>
         </ol>
         <h1 class="page-header">管理 <span class="badge">{{ sum }}</span></h1>
         <div class="table-responsive">
@@ -32,7 +32,7 @@
                 <td class="article-title">{{ title.title }}</td>
                 <td>{{ Articletype.query.filter(Articletype.id ==title.type).first().t_name }}</td>
                 <td>{{ title.create_time }}</td>
-                <td><a href="/update-article/?{{ title.title }}">修改</a> <a rel="1" href="/delete-article/?{{ title.title }}">删除</a></td>
+                <td><a href="/back/update-article/?{{ title.title }}">修改</a> <a rel="1" href="/back/delete-article/?{{ title.title }}">删除</a></td>
               </tr>
             {% endfor %}
             </tbody>

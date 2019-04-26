@@ -4,10 +4,10 @@ from flask import Blueprint
 
 from back.model import Article
 
-blue = Blueprint('app',__name__)
+web = Blueprint('web',__name__)
 
 
-@blue.route('/', methods=["GET", "POST"])
+@web.route('/', methods=["GET", "POST"])
 def login():
     if request.method == "GET":
         return render_template('web/login.html')
@@ -15,22 +15,22 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
         if username == "chen" and password == "123456":
-            return redirect('/home/')
+            return redirect('/web/home/')
         return render_template("web/login.html")
 
 
-@blue.route('/home/', methods=['GET'])
+@web.route('/home/', methods=['GET'])
 def home():
     art = Article.query.all()
     return render_template('web/index.html', art=art)
 
 
-@blue.route('/about/', methods=['GET'])
+@web.route('/about/', methods=['GET'])
 def about():
     return render_template('web/about.html')
 
 
-@blue.route('/single/', methods=['GET'])
+@web.route('/single/', methods=['GET'])
 def post():
     art = request.args.to_dict().keys()
     for art in art:
@@ -40,6 +40,6 @@ def post():
     return render_template('web/single.html', article=article, content=content)
 
 
-@blue.route('/contact/', methods=['GET'])
+@web.route('/contact/', methods=['GET'])
 def contact():
     return render_template('web/contact.html')

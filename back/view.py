@@ -10,17 +10,17 @@ from flask import Blueprint
 from back.model import Article, db, User, Articletype
 from utils.functions import login_required
 
-blue = Blueprint('app',__name__)
+back = Blueprint('back',__name__)
 
 
 # 跳转到注册页面
-@blue.route('/',methods=['GET'])
-def aa():
-    return redirect('/register/')
+# @back.route('/',methods=['GET'])
+# def aa():
+#     return redirect('/back/register/')
 
 
 # 注册
-@blue.route('/register/',methods=["GET","POST"])
+@back.route('/register/',methods=["GET","POST"])
 def register():
     if request.method =="GET":
         return render_template('back/register.html')
@@ -39,7 +39,7 @@ def register():
                     user.username = username
                     user.password = generate_password_hash(password)
                     user.save()
-                    return redirect('/login/')
+                    return redirect('/back/login/')
                 else:
                     error = '您两次输入的密码不一样，注册失败'
                     return render_template('back/register.html',error = error)
@@ -49,7 +49,7 @@ def register():
 
 
 # 登录
-@blue.route('/login/',methods=["GET","POST"])
+@back.route('/login/',methods=["GET","POST"])
 def login():
     if request.method =="GET":
         return render_template('back/login.html')
@@ -65,47 +65,47 @@ def login():
                 error = '密码错误，请重新输入'
                 return render_template('back/login.html',error=error)
             session['user_id'] = user.id
-            return redirect('/index/')
+            return redirect('/back/index/')
         else:
             error = '请输入完整信息'
             return render_template('back/login.html',error=error)
 
 
 # 后台主页
-@blue.route('/index/',methods=['GET'])
+@back.route('/index/',methods=['GET'])
 @login_required
 def index():
     sum = Article.query.count()
     return render_template('back/index.html', sum=sum)
 
 
-@blue.route('/add-article/',methods=['GET'])
+@back.route('/add-article/',methods=['GET'])
 def add_article():
     name = Articletype.query.order_by(Articletype.id).all()
     time = datetime.now()
     return render_template('back/add-article.html',time=time,name=name)
 
 
-@blue.route('/add-category/',methods=['GET'])
+@back.route('/add-category/',methods=['GET'])
 def add_category():
     return render_template('back/add-category.html')
 
 
-@blue.route('/article/',methods=['GET'])
+@back.route('/article/',methods=['GET'])
 def article():
     title = Article.query.all()
     sum = Article.query.count()
     return render_template('back/article.html',title = title, Articletype=Articletype, sum=sum )
 
 
-@blue.route('/category/',methods=['GET'])
+@back.route('/category/',methods=['GET'])
 def category():
     name = Articletype.query.order_by(Articletype.id).all()
     sum = Articletype.query.count()
     return render_template('back/category.html',name=name, sum=sum)
 
 
-@blue.route('/update-article/',methods=['GET'])
+@back.route('/update-article/',methods=['GET'])
 def update_article():
     name  = request.args.to_dict().keys()
     for name3 in name:
@@ -119,13 +119,13 @@ def update_article():
     return render_template('back/update-article.html',name=name,name1=name1,content=content,desc=desc,type=type,id=id,Article=Article,Id=Id)
 
 
-@blue.route('/update-category/',methods=['GET'])
+@back.route('/update-category/',methods=['GET'])
 def update_category():
     name = request.args.to_dict().keys()
     return render_template('back/update-category.html',name=name)
 
 
-@blue.route('/Category/update/',methods=['GET', 'POST'])
+@back.route('/Category/update/',methods=['GET', 'POST'])
 def category_update():
     name = request.args.to_dict().keys()
     for x in name:
@@ -134,10 +134,10 @@ def category_update():
     name2 = Articletype.query.filter_by(t_name = name1).first()
     name2.t_name = name
     db.session.commit()
-    return redirect('/category/')
+    return redirect('/back/category/')
 
 
-@blue.route('/Article/update/',methods=['GET', 'POST'])
+@back.route('/Article/update/',methods=['GET', 'POST'])
 def article_update():
     titles = request.args.to_dict().keys()
     for x in titles:
@@ -152,10 +152,10 @@ def article_update():
     name2.desc = desc
     name2.type = type
     db.session.commit()
-    return redirect('/article/')
+    return redirect('/back/article/')
 
 
-@blue.route('/delete-category/',methods=['GET','POST'])
+@back.route('/delete-category/',methods=['GET','POST'])
 def delete_category():
     name = request.args.to_dict().keys()
     for x in name:
@@ -163,10 +163,10 @@ def delete_category():
     name2 = Articletype.query.filter_by(t_name=name1).first()
     db.session.delete(name2)
     db.session.commit()
-    return redirect('/category/')
+    return redirect('/back/category/')
 
 
-@blue.route('/delete-article/',methods=['GET','POST'])
+@back.route('/delete-article/',methods=['GET','POST'])
 def delete_article():
     name = request.args.to_dict().keys()
     for x in name:
@@ -174,11 +174,11 @@ def delete_article():
         name2 = Article.query.filter_by(title=x).first()
         db.session.delete(name2)
         db.session.commit()
-    return redirect('/article/')
+    return redirect('/back/article/')
 
 
 # 删除
-@blue.route('/article/checkall/',methods=['GET', 'POST'])
+@back.route('/article/checkall/',methods=['GET', 'POST'])
 def article_chenkall():
     title = request.form.getlist('checkbox[]')
     if title is not None:
@@ -188,17 +188,17 @@ def article_chenkall():
             db.session.commit()
     else:
         pass
-    return redirect('/article/')
+    return redirect('/back/article/')
 
 
 # 创建数据库
-@blue.route('/create/')
+@back.route('/create/')
 def create():
     db.create_all()
     return "xinjian"
 
 
-@blue.route('/article/add/',methods=['GET','POST'])
+@back.route('/article/add/',methods=['GET','POST'])
 def article_add():
     category = request.form.get("category")
     art = Article()
@@ -210,15 +210,15 @@ def article_add():
         art.save()
     else:
         return render_template('back/add-article.html')
-    return redirect('/article/')
+    return redirect('/back/article/')
 
 
-@blue.route('/category/add/',methods=['GET','POST'])
+@back.route('/category/add/',methods=['GET','POST'])
 def category_add():
     type = Articletype()
     type.t_name = request.form.get('name')
     type.save()
-    return redirect('/category/')
+    return redirect('/back/category/')
 
 
 
