@@ -10,7 +10,7 @@ def login_required(func):
         if user_id:
             return func(*args,**kwargs)
         else:
-            return redirect('/login/')
+            return redirect('/back/login/')
             # return render_template('back/login.html')
     return check
 

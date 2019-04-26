@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from flask import render_template, request, redirect, session
 
@@ -80,6 +80,7 @@ def index():
 
 
 @back.route('/add-article/',methods=['GET', 'POST'])
+@login_required
 def add_article():
     name = Articletype.query.order_by(Articletype.id).all()
     time = datetime.now()
@@ -87,11 +88,13 @@ def add_article():
 
 
 @back.route('/add-category/',methods=['GET'])
+@login_required
 def add_category():
     return render_template('back/add-category.html')
 
 
 @back.route('/article/',methods=['GET'])
+@login_required
 def article():
     title = Article.query.all()
     sum = Article.query.count()
@@ -99,6 +102,7 @@ def article():
 
 
 @back.route('/category/',methods=['GET'])
+@login_required
 def category():
     name = Articletype.query.order_by(Articletype.id).all()
     sum = Articletype.query.count()
@@ -106,6 +110,7 @@ def category():
 
 
 @back.route('/update-article/',methods=['GET','POST'])
+@login_required
 def update_article():
     name  = request.args.to_dict().keys()
     for name3 in name:
@@ -120,12 +125,14 @@ def update_article():
 
 
 @back.route('/update-category/',methods=['GET'])
+@login_required
 def update_category():
     name = request.args.to_dict().keys()
     return render_template('back/update-category.html',name=name)
 
 
 @back.route('/Category/update/',methods=['GET', 'POST'])
+@login_required
 def category_update():
     name = request.args.to_dict().keys()
     for x in name:
@@ -138,6 +145,7 @@ def category_update():
 
 
 @back.route('/Article/update/',methods=['GET', 'POST'])
+@login_required
 def article_update():
     titles = request.args.to_dict().keys()
     for x in titles:
@@ -156,6 +164,7 @@ def article_update():
 
 
 @back.route('/delete-category/',methods=['GET','POST'])
+@login_required
 def delete_category():
     name = request.args.to_dict().keys()
     for x in name:
@@ -167,6 +176,7 @@ def delete_category():
 
 
 @back.route('/delete-article/',methods=['GET','POST'])
+@login_required
 def delete_article():
     name = request.args.to_dict().keys()
     for x in name:
@@ -179,6 +189,7 @@ def delete_article():
 
 # 删除
 @back.route('/article/checkall/',methods=['GET', 'POST'])
+@login_required
 def article_chenkall():
     title = request.form.getlist('checkbox[]')
     if title is not None:
@@ -199,6 +210,7 @@ def create():
 
 
 @back.route('/article/add/',methods=['GET','POST'])
+@login_required
 def article_add():
     category = request.form.get("category")
     art = Article()
@@ -209,11 +221,12 @@ def article_add():
     if art.title and art.content and art.desc:
         art.save()
     else:
-        return render_template('back/add-article.html')
+        return redirect('/back/add-article/')
     return redirect('/back/article/')
 
 
 @back.route('/category/add/',methods=['GET','POST'])
+@login_required
 def category_add():
     type = Articletype()
     type.t_name = request.form.get('name')

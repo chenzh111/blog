@@ -6,6 +6,7 @@ from web.view import web
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '123456aadadadadasda'
+app.config['PERMANENT_SESSION_LIFETIME'] = 10
 app.register_blueprint(blueprint=back, url_prefix='/back/')
 app.register_blueprint(blueprint=web, url_prefix='/web/')
 
