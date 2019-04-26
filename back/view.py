@@ -20,7 +20,7 @@ back = Blueprint('back',__name__)
 
 
 # 注册
-@back.route('/register/',methods=["GET","POST"])
+@back.route('/register1233456677/',methods=["GET","POST"])
 def register():
     if request.method =="GET":
         return render_template('back/register.html')
