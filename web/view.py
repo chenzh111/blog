@@ -30,7 +30,7 @@ def about():
     return render_template('web/about.html')
 
 
-@web.route('/single/', methods=['GET'])
+@web.route('/single/', methods=['GET','POST'])
 def post():
     art = request.args.to_dict().keys()
     for art in art:
@@ -40,6 +40,6 @@ def post():
     return render_template('web/single.html', article=article, content=content)
 
 
-@web.route('/contact/', methods=['GET'])
+@web.route('/contact/', methods=['GET', 'POST'])
 def contact():
     return render_template('web/contact.html')

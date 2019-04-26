@@ -79,7 +79,7 @@ def index():
     return render_template('back/index.html', sum=sum)
 
 
-@back.route('/add-article/',methods=['GET'])
+@back.route('/add-article/',methods=['GET', 'POST'])
 def add_article():
     name = Articletype.query.order_by(Articletype.id).all()
     time = datetime.now()
@@ -105,7 +105,7 @@ def category():
     return render_template('back/category.html',name=name, sum=sum)
 
 
-@back.route('/update-article/',methods=['GET'])
+@back.route('/update-article/',methods=['GET','POST'])
 def update_article():
     name  = request.args.to_dict().keys()
     for name3 in name:

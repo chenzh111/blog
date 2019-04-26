@@ -3,7 +3,6 @@
     博客
 {% endblock %}
 {% block body %}
-{{ super }}
 <section class="row content-wrap">
     <div class="container">
         <div class="row">
@@ -54,98 +53,89 @@
 {#                            </div>#}
 {#                        </div>#}
 {#                        <br>#}
-{#                    <div class="row m0 tags">#}
-{#                        <a href="#" class="tag">music</a>#}
-{#                        <a href="#" class="tag">tegs</a>#}
-{#                        <a href="#" class="tag">tegs hover</a>#}
-{#                    </div>#}
-{##}
-{#                    <div class="row m0 comments">#}
-{#                        <h5 class="response-count">5 comments<a href="#comment-form" class="btn btn-primary pull-right"><span>add comment</span></a></h5>#}
+                    <div class="row m0 tags">
+                        <a href="#" class="tag">music</a>
+                        <a href="#" class="tag">tegs</a>
+                        <a href="#" class="tag">tegs hover</a>
+                    </div>
+                    <div class="row m0 comments">
+                        <h5 class="response-count">5条评论<a href="#comment-form" class="btn btn-primary pull-right"><span>写评论</span></a></h5>
                         <!--Comments-->
-{#                        <div class="media comment">#}
-{#                            <div class="media-left">#}
-{#                                <a href="#"><img src="/static/web/images/posts/c1.jpg" alt="" class="img-circle"></a>#}
-{#                            </div>#}
-{#                            <div class="media-body">#}
-{#                                <h4><a href="#">Mark Sanders</a></h4>#}
-{#                                <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>#}
-{#                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>                                #}
-{#                                <!--Comments-->#}
-{#                                <div class="media comment reply">#}
-{#                                    <div class="media-left">#}
-{#                                        <a href="#"><img src="/static/web/images/posts/c2.jpg" alt="" class="img-circle"></a>#}
-{#                                    </div>#}
-{#                                    <div class="media-body">#}
-{#                                        <h4><a href="#">Mark Sanders</a></h4>#}
-{#                                        <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>#}
-{#                                        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>#}
-{#                                        <!--Comments-->#}
-{#                                        <div class="media comment reply">#}
-{#                                            <div class="media-left">#}
-{#                                                <a href="#"><img src="/static/web/images/posts/c1.jpg" alt="" class="img-circle"></a>#}
-{#                                            </div>#}
-{#                                            <div class="media-body">#}
-{#                                                <h4><a href="#">Mark Sanders</a></h4>#}
-{#                                                <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>#}
-{#                                                <p>Remaining essentially unchanged.</p>#}
-{#                                                <!--Comments-->#}
-{#                                                <div class="media comment reply">#}
-{#                                                    <div class="media-left">#}
-{#                                                        <a href="#"><img src="/static/web/images/posts/c2.jpg" alt="" class="img-circle"></a>#}
-{#                                                    </div>#}
-{#                                                    <div class="media-body">#}
-{#                                                        <h4><a href="#">Mark Sanders</a></h4>#}
-{#                                                        <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>#}
-{#                                                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>#}
-{#                                                    </div>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
+                        <div class="media comment">
+                            <div class="media-left">
+                                <a href="#"><img src="/static/web/images/posts/ma.jpg" alt="" class="img-circle"></a>
+                            </div>
+                            <div class="media-body">
+                                <h4><a href="#">马云</a></h4>
+                                <h5><a href="#" class="date">2019-4-20 10:10</a> | <a href="#" class="reply-link"></a></h5>
+                                <p>博主牛逼</p>
+                                <!--Comments-->
+                                <div class="media comment reply">
+                                    <div class="media-left">
+                                        <a href="#"><img src="/static/web/images/posts/hua.jpg" alt="" class="img-circle"></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4><a href="#">马化腾</a></h4>
+                                        <h5><a href="#" class="date">2019-4-20 10:30</a> | <a href="#" class="reply-link"></a></h5>
+                                        <p>马云牛逼！！</p>
+                                        <!--Comments-->
+                                        <div class="media comment reply">
+                                            <div class="media-left">
+                                                <a href="#"><img src="/static/web/images/posts/lei.jpg" alt="" class="img-circle"></a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4><a href="#">雷军</a></h4>
+                                                <h5><a href="#" class="date">2019-4-20 11:50</a> | <a href="#" class="reply-link"></a></h5>
+                                                <p>你们都牛逼！！are you ok？</p>
+                                                <!--Comments-->
+                                                <div class="media comment reply">
+                                                    <div class="media-left">
+                                                        <a href="#"><img src="/static/web/images/posts/liu.jpg" alt="" class="img-circle"></a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4><a href="#">强东</a></h4>
+                                                        <h5><a href="#" class="date">2019-4-21 2:10</a> | <a href="#" class="reply-link"></a></h5>
+                                                        <p>牛逼牛逼，不敢惹！</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-{#                        <!--Comments-->#}
-{#                        <div class="media comment">#}
-{#                            <div class="media-left">#}
-{#                                <a href="#"><img src="/static/web/images/posts/c1.jpg" alt="" class="img-circle"></a>#}
-{#                            </div>#}
-{#                            <div class="media-body">#}
-{#                                <h4><a href="#">Mark Sanders</a></h4>#}
-{#                                <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>#}
-{#                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    </div>#}
-{#                    <form action="#" method="post" class="comment-form row" id="comment-form">#}
-{#                        <h5 class="form-title">leave a reply</h5>#}
-{#                        <div class="form-group col-sm-6">#}
-{#                            <label for="name">full name*</label>#}
-{#                            <input type="text" id="name" class="form-control" placeholder="Your name" required>#}
-{#                        </div>#}
-{#                        <div class="form-group col-sm-6">#}
-{#                            <label for="email">full name*</label>#}
-{#                            <input type="email" id="email" class="form-control" placeholder="Your email address here" required>#}
-{#                        </div>#}
-{#                        <div class="form-group col-sm-6">#}
-{#                            <label for="website">website</label>#}
-{#                            <input type="url" id="website" class="form-control" placeholder="Your website url" >#}
-{#                        </div>#}
-{#                        <div class="form-group col-sm-6">#}
-{#                            <label for="subject">subject</label>#}
-{#                            <input type="text" id="subject" class="form-control" placeholder="Write subject here" required>#}
-{#                        </div>#}
-{#                        <div class="form-group col-sm-12">#}
-{#                            <label for="message">message</label>#}
-{#                            <textarea name="message" id="message" class="form-control" placeholder="Write message here"></textarea>#}
-{#                        </div>#}
-{#                        <div class="col-sm-12">#}
-{#                            <button type="submit" class="btn-primary"><span>send</span></button>#}
-{#                            <h5 class="pull-right">*required fields</h5>#}
-{#                        </div>#}
-{#                    </form>#}
+                        <!--Comments-->
+                        <div class="media comment">
+                            <div class="media-left">
+                                <a href="#"><img src="/static/web/images/posts/ma.jpg" alt="" class="img-circle"></a>
+                            </div>
+                            <div class="media-body">
+                                <h4><a href="#">马云</a></h4>
+                                <h5><a href="#" class="date">2019-4-25 1:10</a> | <a href="#" class="reply-link"></a></h5>
+                                <p>are you ok？</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <form action="" method="post" class="comment-form row" id="comment-form">
+                        <h5 class="form-title">发表评论</h5>
+                        <div class="form-group col-sm-6">
+                            <label for="name">您的名字*</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="email">邮箱*</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your email address here" required>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="message">评论内容</label>
+                            <textarea name="message" id="message" class="form-control" placeholder="Write message here"></textarea>
+                        </div>
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn-primary"><span>发表</span></button>
+                            <h5 class="pull-right">*为必填项</h5>
+                        </div>
+                    </form>
                 </article>
             </div>
             <div class="col-md-4 sidebar">
